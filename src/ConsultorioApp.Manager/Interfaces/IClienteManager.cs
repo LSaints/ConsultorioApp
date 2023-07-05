@@ -1,4 +1,5 @@
 ﻿using ConsultorioApp.Core.Domain;
+using ConsultorioApp.Shared.ModelView;
 
 namespace ConsultorioApp.Data.Repository
 {
@@ -7,7 +8,7 @@ namespace ConsultorioApp.Data.Repository
         Task DeleteClienteAsync(int id);
         Task<Cliente> GetClienteAsync(int id);
         Task<IEnumerable<Cliente>> GetClientesAsync();
-        Task<Cliente> InsertClienteAsync(Cliente cliente);
-        Task<Cliente> UpdateClienteAsync(Cliente cliente);
+        Task<Cliente> InsertClienteAsync(NovoCliente novoCliente);
+        Task<Cliente> UpdateClienteAsync(AlteraCliente cliente);
     }
 }
