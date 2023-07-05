@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ConsultorioApp.Core\ConsultorioApp.Core.csproj" />
+  </ItemGroup>
+
 </Project>
