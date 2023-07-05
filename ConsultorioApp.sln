@@ -5,17 +5,19 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{40FBBEE6-A8E7-4089-BB45-1BDBF93BD042}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioApp.API", "src\ConsultorioApp.API\ConsultorioApp.API.csproj", "{D320F0D5-FB49-4864-B927-A2BBCD8F2660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsultorioApp.API", "src\ConsultorioApp.API\ConsultorioApp.API.csproj", "{D320F0D5-FB49-4864-B927-A2BBCD8F2660}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioApp.Manager", "src\ConsultorioApp.Manager\ConsultorioApp.Manager.csproj", "{00A5034A-25EC-4BE3-9FDB-F02B67C6C15D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsultorioApp.Manager", "src\ConsultorioApp.Manager\ConsultorioApp.Manager.csproj", "{00A5034A-25EC-4BE3-9FDB-F02B67C6C15D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioApp.Data", "src\ConsultorioApp.Data\ConsultorioApp.Data.csproj", "{E0CECA12-B52B-488F-AA52-AD3B736977B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsultorioApp.Data", "src\ConsultorioApp.Data\ConsultorioApp.Data.csproj", "{E0CECA12-B52B-488F-AA52-AD3B736977B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioApp.Core", "src\ConsultorioApp.Core\ConsultorioApp.Core.csproj", "{03102DFA-EC04-4E2E-83B5-289F8D150CD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsultorioApp.Core", "src\ConsultorioApp.Core\ConsultorioApp.Core.csproj", "{03102DFA-EC04-4E2E-83B5-289F8D150CD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{902E283C-F7B2-487D-925E-5538AA6A0B16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioApp.Tests", "tests\ConsultorioApp.Tests\ConsultorioApp.Tests.csproj", "{7603C06B-9BDC-4CA4-A602-D322D5285222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsultorioApp.Tests", "tests\ConsultorioApp.Tests\ConsultorioApp.Tests.csproj", "{7603C06B-9BDC-4CA4-A602-D322D5285222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioApp.Shared", "src\ConsultorioApp.Shared\ConsultorioApp.Shared.csproj", "{B9FECDF8-3A6B-4E0A-8D87-941B4A3DA4CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{7603C06B-9BDC-4CA4-A602-D322D5285222}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7603C06B-9BDC-4CA4-A602-D322D5285222}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7603C06B-9BDC-4CA4-A602-D322D5285222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9FECDF8-3A6B-4E0A-8D87-941B4A3DA4CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9FECDF8-3A6B-4E0A-8D87-941B4A3DA4CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9FECDF8-3A6B-4E0A-8D87-941B4A3DA4CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9FECDF8-3A6B-4E0A-8D87-941B4A3DA4CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{E0CECA12-B52B-488F-AA52-AD3B736977B7} = {40FBBEE6-A8E7-4089-BB45-1BDBF93BD042}
 		{03102DFA-EC04-4E2E-83B5-289F8D150CD4} = {40FBBEE6-A8E7-4089-BB45-1BDBF93BD042}
 		{7603C06B-9BDC-4CA4-A602-D322D5285222} = {902E283C-F7B2-487D-925E-5538AA6A0B16}
+		{B9FECDF8-3A6B-4E0A-8D87-941B4A3DA4CB} = {40FBBEE6-A8E7-4089-BB45-1BDBF93BD042}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3E01C85-4501-4F66-BCD5-47358B42C1FC}

@@ -2,6 +2,7 @@ using ConsultorioApp.Data.Context;
 using ConsultorioApp.Data.Implementation;
 using ConsultorioApp.Data.Repository;
 using ConsultorioApp.Manager.Interfaces;
+using ConsultorioApp.Manager.Mappings;
 using ConsultorioApp.Manager.Validator;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
@@ -19,9 +20,12 @@ builder.Services.AddDbContext<ConsultorioAppContext>(options =>
 builder.Services.AddControllers()
     .AddFluentValidation(p =>
     {
-        p.RegisterValidatorsFromAssemblyContaining<ClienteValidator>();
+        p.RegisterValidatorsFromAssemblyContaining<NovoClienteValidator>();
+        p.RegisterValidatorsFromAssemblyContaining<AlteraClienteValidator>();
         p.ValidatorOptions.LanguageManager.Culture = new CultureInfo("pt-BR");
     });
+
+builder.Services.AddAutoMapper(typeof(NovoClienteMappingProfile), typeof(AlteraClienteMappingProfile));
 
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IClienteManager, ClienteManager>();

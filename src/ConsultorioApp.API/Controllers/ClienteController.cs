@@ -1,5 +1,6 @@
 ﻿using ConsultorioApp.Core.Domain;
 using ConsultorioApp.Data.Repository;
+using ConsultorioApp.Shared.ModelView;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -32,16 +33,17 @@ namespace ConsultorioApp.API.Controllers
 
         // POST api/<ClienteController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Cliente cliente)
+        public async Task<IActionResult> Post([FromBody] NovoCliente cliente)
         {
             var clienteInserido = await _manager.InsertClienteAsync(cliente);
-            return CreatedAtAction(nameof(Get), new {id = cliente.Id }, cliente);
+            return CreatedAtAction(nameof(Get), new {id = clienteInserido.Id }, clienteInserido);
         }
 
         // PUT api/<ClienteController>/5
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] Cliente cliente)
+        public async Task<ActionResult> Put([FromBody] AlteraCliente cliente)
         {
+
             var clienteAtualizado = await _manager.UpdateClienteAsync(cliente);
             if (clienteAtualizado == null)
             {
