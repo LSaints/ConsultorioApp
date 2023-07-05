@@ -1,4 +1,5 @@
 ﻿using ConsultorioApp.Core.Domain;
+using ConsultorioApp.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,30 +10,24 @@ namespace ConsultorioApp.API.Controllers
     [ApiController]
     public class ClienteController : ControllerBase
     {
+        private readonly IClienteManager _manager;
+        public ClienteController(IClienteManager manager)
+        {
+            _manager = manager;
+        }
+
         // GET: api/<ClienteController>
         [HttpGet]
-        public ActionResult Get()
+        public async Task<ActionResult> Get()
         {
-            return Ok(new List<Cliente>()
-            {
-                new Cliente {
-                    Id = 1,
-                    Name = "Test",
-                    DataNascimento = new DateTime(1980, 01, 01)
-                }, 
-                new Cliente {
-                    Id = 2,
-                    Name = "Test2",
-                    DataNascimento = new DateTime(1981, 11, 01)
-                }
-            });
+            return Ok(await _manager.GetClientesAsync());
         }
 
         // GET api/<ClienteController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult> Get(int id)
         {
-            return "value";
+            return Ok(await _manager.GetClienteAsync(id));
         }
 
         // POST api/<ClienteController>
