@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ConsultorioApp.Core\ConsultorioApp.Core.csproj" />
+    <ProjectReference Include="..\ConsultorioApp.Manager\ConsultorioApp.Manager.csproj" />
   </ItemGroup>
 
 </Project>
