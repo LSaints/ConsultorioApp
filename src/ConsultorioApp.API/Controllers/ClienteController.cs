@@ -32,20 +32,30 @@ namespace ConsultorioApp.API.Controllers
 
         // POST api/<ClienteController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] Cliente cliente)
         {
+            var clienteInserido = await _manager.InsertClienteAsync(cliente);
+            return CreatedAtAction(nameof(Get), new {id = cliente.Id }, cliente);
         }
 
         // PUT api/<ClienteController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<ActionResult> Put([FromBody] Cliente cliente)
         {
+            var clienteAtualizado = await _manager.UpdateClienteAsync(cliente);
+            if (clienteAtualizado == null)
+            {
+                return NotFound();
+            }
+            return Ok(clienteAtualizado);
         }
 
         // DELETE api/<ClienteController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            await _manager.DeleteClienteAsync(id);
+            return NoContent();
         }
     }
 }
