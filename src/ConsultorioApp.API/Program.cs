@@ -6,14 +6,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
+builder.Services.UseDependecyInjectionConfiguration();
+
+builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ConsultorioAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConsultorioConnection")));
 
-FluentValidationConfiguration.UseFluentValidationConfig();
-AutoMapperConfiguration.UseAutoMapperConfig();
-DependecyInjectionConfig.UseDependecyInjectionConfiguration();
+builder.Services.UseAutoMapperConfiguration();
+
+builder.Services.UseFluentValidationConfiguration();
 
 var app = builder.Build();
 
