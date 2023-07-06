@@ -19,6 +19,8 @@ namespace ConsultorioApp.API.Controllers
 
         // GET: api/<ClienteController>
         [HttpGet]
+        [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Get()
         {
             return Ok(await _manager.GetClientesAsync());
@@ -26,6 +28,8 @@ namespace ConsultorioApp.API.Controllers
 
         // GET api/<ClienteController>/5
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Get(int id)
         {
             return Ok(await _manager.GetClienteAsync(id));
@@ -33,6 +37,8 @@ namespace ConsultorioApp.API.Controllers
 
         // POST api/<ClienteController>
         [HttpPost]
+        [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Post([FromBody] NovoCliente cliente)
         {
             var clienteInserido = await _manager.InsertClienteAsync(cliente);
@@ -41,6 +47,9 @@ namespace ConsultorioApp.API.Controllers
 
         // PUT api/<ClienteController>/5
         [HttpPut]
+        [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Put([FromBody] AlteraCliente cliente)
         {
 
@@ -54,6 +63,9 @@ namespace ConsultorioApp.API.Controllers
 
         // DELETE api/<ClienteController>/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Delete(int id)
         {
             await _manager.DeleteClienteAsync(id);
