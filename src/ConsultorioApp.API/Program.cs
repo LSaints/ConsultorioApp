@@ -8,14 +8,11 @@ internal class Program
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
-
-        builder.Services.UseDependecyInjectionConfiguration();
-
         builder.Services.AddSwaggerGen();
         builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
         builder.Services.UseAutoMapperConfiguration();
-
+        builder.Services.UseDependecyInjectionConfiguration();
         builder.Services.UseFluentValidationConfiguration();
 
         var app = builder.Build();
