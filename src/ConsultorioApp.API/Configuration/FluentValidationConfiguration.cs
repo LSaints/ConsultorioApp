@@ -6,17 +6,15 @@ namespace ConsultorioApp.API.Configuration
 {
     public static class FluentValidationConfiguration
     {
-        public static void UseFluentValidationConfig()
+        public static void UseFluentValidationConfiguration(this IServiceCollection services)
         {
-            var builder = WebApplication.CreateBuilder();
-
-            builder.Services.AddControllers()
-                .AddFluentValidation(p =>
-                {
-                    p.RegisterValidatorsFromAssemblyContaining<NovoClienteValidator>();
-                    p.RegisterValidatorsFromAssemblyContaining<AlteraClienteValidator>();
-                    p.ValidatorOptions.LanguageManager.Culture = new CultureInfo("pt-BR");
-                });
+            services.AddControllers()
+               .AddFluentValidation(p =>
+               {
+                   p.RegisterValidatorsFromAssemblyContaining<NovoClienteValidator>();
+                   p.RegisterValidatorsFromAssemblyContaining<AlteraClienteValidator>();
+                   p.ValidatorOptions.LanguageManager.Culture = new CultureInfo("pt-BR");
+               });
         }
     }
 }

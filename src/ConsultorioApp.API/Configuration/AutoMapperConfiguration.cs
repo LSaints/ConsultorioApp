@@ -4,11 +4,9 @@ namespace ConsultorioApp.API.Configuration
 {
     public static class AutoMapperConfiguration
     {
-        public static void UseAutoMapperConfig() 
+        public static void UseAutoMapperConfiguration(this IServiceCollection services)
         {
-            var builder = WebApplication.CreateBuilder();
-
-            builder.Services.AddAutoMapper(typeof(NovoClienteMappingProfile), typeof(AlteraClienteMappingProfile));
+            services.AddAutoMapper(typeof(NovoClienteMappingProfile), typeof(AlteraClienteMappingProfile));
         }
     }
 }
