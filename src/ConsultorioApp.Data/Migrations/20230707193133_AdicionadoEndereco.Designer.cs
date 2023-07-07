@@ -4,6 +4,7 @@ using ConsultorioApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConsultorioApp.Data.Migrations
 {
     [DbContext(typeof(ConsultorioAppContext))]
-    partial class ConsultorioAppContextModelSnapshot : ModelSnapshot
+    [Migration("20230707193133_AdicionadoEndereco")]
+    partial class AdicionadoEndereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,6 +90,9 @@ namespace ConsultorioApp.Data.Migrations
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Logradouro")
                         .IsRequired()

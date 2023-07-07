@@ -1,4 +1,5 @@
 ﻿using ConsultorioApp.Manager.Mappings;
+using ConsultorioApp.Shared.ModelView;
 
 namespace ConsultorioApp.API.Configuration
 {
