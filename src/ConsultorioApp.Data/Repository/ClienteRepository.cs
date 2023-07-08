@@ -17,6 +17,7 @@ namespace ConsultorioApp.Data.Repository
         {
             return await _context.Clientes
                 .Include(e => e.Endereco)
+                .Include(t => t.Telefones)
                 .AsNoTracking().ToListAsync();
         }
 
@@ -24,6 +25,7 @@ namespace ConsultorioApp.Data.Repository
         {
             return await _context.Clientes
                 .Include(e => e.Endereco)
+                .Include(t => t.Telefones)
                 .SingleOrDefaultAsync(e => e.Id == id);
         }
 
