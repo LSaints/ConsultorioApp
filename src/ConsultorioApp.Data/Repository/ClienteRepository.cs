@@ -15,12 +15,16 @@ namespace ConsultorioApp.Data.Repository
 
         public async Task<IEnumerable<Cliente>> GetClientesAsync()
         {
-            return await _context.Clientes.AsNoTracking().ToListAsync();
+            return await _context.Clientes
+                .Include(e => e.Endereco)
+                .AsNoTracking().ToListAsync();
         }
 
         public async Task<Cliente> GetClienteAsync(int id)
         {
-            return await _context.Clientes.FindAsync(id);
+            return await _context.Clientes
+                .Include(e => e.Endereco)
+                .SingleOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task<Cliente> InsertClienteAsync(Cliente cliente)
