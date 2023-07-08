@@ -4,6 +4,7 @@ using ConsultorioApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConsultorioApp.Data.Migrations
 {
     [DbContext(typeof(ConsultorioAppContext))]
-    partial class ConsultorioAppContextModelSnapshot : ModelSnapshot
+    [Migration("20230707200629_RemovendoCampoIdDeEndereco")]
+    partial class RemovendoCampoIdDeEndereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,6 +56,10 @@ namespace ConsultorioApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(1)")
                         .HasDefaultValue("M");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .HasColumnType("datetime2");
@@ -97,19 +104,6 @@ namespace ConsultorioApp.Data.Migrations
                     b.ToTable("Enderecos");
                 });
 
-            modelBuilder.Entity("ConsultorioApp.Core.Domain.Telefone", b =>
-                {
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Numero")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ClienteId", "Numero");
-
-                    b.ToTable("Telefones");
-                });
-
             modelBuilder.Entity("ConsultorioApp.Core.Domain.Endereco", b =>
                 {
                     b.HasOne("ConsultorioApp.Core.Domain.Cliente", "Cliente")
@@ -121,23 +115,10 @@ namespace ConsultorioApp.Data.Migrations
                     b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("ConsultorioApp.Core.Domain.Telefone", b =>
-                {
-                    b.HasOne("ConsultorioApp.Core.Domain.Cliente", "cliente")
-                        .WithMany("Telefones")
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("cliente");
-                });
-
             modelBuilder.Entity("ConsultorioApp.Core.Domain.Cliente", b =>
                 {
                     b.Navigation("Endereco")
                         .IsRequired();
-
-                    b.Navigation("Telefones");
                 });
 #pragma warning restore 612, 618
         }
