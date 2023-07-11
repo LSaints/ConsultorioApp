@@ -1,5 +1,4 @@
 ﻿using ConsultorioApp.Manager.Mappings;
-using ConsultorioApp.Shared.ModelView;
 
 namespace ConsultorioApp.API.Configuration
 {
@@ -8,6 +7,7 @@ namespace ConsultorioApp.API.Configuration
         public static void UseAutoMapperConfiguration(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(NovoClienteMappingProfile), typeof(AlteraClienteMappingProfile));
+            services.AddAutoMapper(typeof(NovoMedicoMappingProfile), typeof(AlteraMedicoMappingProfile));
         }
     }
 }

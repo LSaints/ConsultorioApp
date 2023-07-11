@@ -1,4 +1,5 @@
-﻿using ConsultorioApp.Core.Domain;
+﻿using AutoMapper;
+using ConsultorioApp.Core.Domain;
 using ConsultorioApp.Manager.Interfaces;
 using ConsultorioApp.Shared.ModelView;
 
@@ -7,9 +8,11 @@ namespace ConsultorioApp.Manager.Implementation
     public class MedicoManager : IMedicoManager
     {
         private readonly IMedicoRepository _repository;
-        public MedicoManager(IMedicoRepository repository)
+        private readonly IMapper _mapper;
+        public MedicoManager(IMedicoRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
         public async Task DeleteMedicoAsync(int id)
         {
@@ -26,13 +29,15 @@ namespace ConsultorioApp.Manager.Implementation
             return await _repository.GetMedicosAsync();
         }
 
-        public async Task<Medico> InsertMedicoAsync(Medico medico)
+        public async Task<Medico> InsertMedicoAsync(NovoMedico novoMedico)
         {
+            var medico = _mapper.Map<Medico>(novoMedico);
             return await _repository.InsertMedicoAsync(medico);
         }
 
-        public async Task<Medico> UpdateMedicoAsync(Medico medico)
+        public async Task<Medico> UpdateMedicoAsync(AlterarMedico alterarMedico)
         {
+            var medico = _mapper.Map<Medico>(alterarMedico);
             return await _repository.UpdateMedicoAsync(medico);
         }
     }

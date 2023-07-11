@@ -1,12 +1,13 @@
 ﻿using ConsultorioApp.Core.Domain;
 using ConsultorioApp.Manager.Interfaces;
+using ConsultorioApp.Shared.ModelView;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConsultorioApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MedicoController : Controller
+    public class MedicoController : ControllerBase
     {
         private readonly IMedicoManager _manager;
         public MedicoController(IMedicoManager manager)
@@ -35,9 +36,9 @@ namespace ConsultorioApp.API.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(Medico), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Post([FromBody] Medico medico)
+        public async Task<IActionResult> Post([FromBody] NovoMedico novoMedico)
         {
-            var medicoInserido = await _manager.InsertMedicoAsync(medico);
+            var medicoInserido = await _manager.InsertMedicoAsync(novoMedico);
             return CreatedAtAction(nameof(Get), new { id = medicoInserido.Id }, medicoInserido);
         }
 
@@ -46,9 +47,9 @@ namespace ConsultorioApp.API.Controllers
         [ProducesResponseType(typeof(Medico), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Put([FromBody] Medico medico)
+        public async Task<ActionResult> Put([FromBody] AlterarMedico AlterarMedico)
         {
-            var medicoAtualizado = await _manager.UpdateMedicoAsync(medico);
+            var medicoAtualizado = await _manager.UpdateMedicoAsync(AlterarMedico);
             if (medicoAtualizado == null)
             {
                 return NotFound();

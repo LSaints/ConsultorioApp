@@ -8,7 +8,7 @@ namespace ConsultorioApp.Manager.Interfaces
         Task DeleteMedicoAsync(int id);
         Task<Medico> GetMedicoAsync(int id);
         Task<IEnumerable<Medico>> GetMedicosAsync();
-        Task<Medico> InsertMedicoAsync(Medico medico);
-        Task<Medico> UpdateMedicoAsync(Medico medico);
+        Task<Medico> InsertMedicoAsync(NovoMedico medico);
+        Task<Medico> UpdateMedicoAsync(AlterarMedico medico);
     }
 }
