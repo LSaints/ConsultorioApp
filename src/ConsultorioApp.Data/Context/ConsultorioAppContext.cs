@@ -9,6 +9,7 @@ namespace ConsultorioApp.Data.Context
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Telefone> Telefones { get; set; }
+        public DbSet<Medico> Medicos { get; set; }
 
         public ConsultorioAppContext(DbContextOptions<ConsultorioAppContext> options) : base(options)
         {
@@ -21,6 +22,7 @@ namespace ConsultorioApp.Data.Context
             modelBuilder.ApplyConfiguration(new ClienteConfiguration());
             modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
             modelBuilder.ApplyConfiguration(new TelefoneConfiguration());
+            modelBuilder.ApplyConfiguration(new MedicoConfiguration());
         }
     }
 }
