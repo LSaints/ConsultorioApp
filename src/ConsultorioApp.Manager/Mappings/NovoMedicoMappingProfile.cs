@@ -9,6 +9,10 @@ namespace ConsultorioApp.Manager.Mappings
         public NovoMedicoMappingProfile()
         {
             CreateMap<NovoMedico, Medico>();
+            CreateMap<Medico, NovoMedico>();
+            CreateMap<AlterarMedico, Medico>();
+            CreateMap<Especialidade, ReferenciaEspecialidade>().ReverseMap();
+            CreateMap<Especialidade, EspecialidadeView>().ReverseMap();
         }
     }
 }
