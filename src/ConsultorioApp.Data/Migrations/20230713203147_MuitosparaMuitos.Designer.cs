@@ -4,6 +4,7 @@ using ConsultorioApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConsultorioApp.Data.Migrations
 {
     [DbContext(typeof(ConsultorioAppContext))]
-    partial class ConsultorioAppContextModelSnapshot : ModelSnapshot
+    [Migration("20230713203147_MuitosparaMuitos")]
+    partial class MuitosparaMuitos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

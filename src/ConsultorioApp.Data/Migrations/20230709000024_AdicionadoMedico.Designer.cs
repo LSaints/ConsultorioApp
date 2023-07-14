@@ -4,6 +4,7 @@ using ConsultorioApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConsultorioApp.Data.Migrations
 {
     [DbContext(typeof(ConsultorioAppContext))]
-    partial class ConsultorioAppContextModelSnapshot : ModelSnapshot
+    [Migration("20230709000024_AdicionadoMedico")]
+    partial class AdicionadoMedico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,23 +100,6 @@ namespace ConsultorioApp.Data.Migrations
                     b.ToTable("Enderecos");
                 });
 
-            modelBuilder.Entity("ConsultorioApp.Core.Domain.Especialidade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Especialidades");
-                });
-
             modelBuilder.Entity("ConsultorioApp.Core.Domain.Medico", b =>
                 {
                     b.Property<int>("Id")
@@ -147,21 +133,6 @@ namespace ConsultorioApp.Data.Migrations
                     b.ToTable("Telefones");
                 });
 
-            modelBuilder.Entity("EspecialidadeMedico", b =>
-                {
-                    b.Property<int>("EspecialidadesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MedicosId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EspecialidadesId", "MedicosId");
-
-                    b.HasIndex("MedicosId");
-
-                    b.ToTable("EspecialidadeMedico");
-                });
-
             modelBuilder.Entity("ConsultorioApp.Core.Domain.Endereco", b =>
                 {
                     b.HasOne("ConsultorioApp.Core.Domain.Cliente", "Cliente")
@@ -182,21 +153,6 @@ namespace ConsultorioApp.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("cliente");
-                });
-
-            modelBuilder.Entity("EspecialidadeMedico", b =>
-                {
-                    b.HasOne("ConsultorioApp.Core.Domain.Especialidade", null)
-                        .WithMany()
-                        .HasForeignKey("EspecialidadesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ConsultorioApp.Core.Domain.Medico", null)
-                        .WithMany()
-                        .HasForeignKey("MedicosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ConsultorioApp.Core.Domain.Cliente", b =>
