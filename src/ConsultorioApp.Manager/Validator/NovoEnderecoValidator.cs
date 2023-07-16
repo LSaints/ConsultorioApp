@@ -8,6 +8,7 @@ namespace ConsultorioApp.Manager.Validator
         public NovoEnderecoValidator()
         {
             RuleFor(c => c.Cidade).NotEmpty().NotNull().MaximumLength(200);
+            RuleFor(c => c.Estado).NotNull();
         }
     }
 }

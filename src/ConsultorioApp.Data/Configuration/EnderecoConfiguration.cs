@@ -9,6 +9,9 @@ namespace ConsultorioApp.Data.Configuration
         public void Configure(EntityTypeBuilder<Endereco> builder)
         {
             builder.HasKey(e => e.ClienteId);
+            builder.Property(p => p.Estado).HasConversion(
+                p => p.ToString(),
+                p => (Estado)Enum.Parse(typeof(Estado), p));
         }
     }
 }

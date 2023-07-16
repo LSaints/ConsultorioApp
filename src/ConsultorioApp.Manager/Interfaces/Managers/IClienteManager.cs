@@ -1,7 +1,7 @@
 ﻿using ConsultorioApp.Core.Domain;
 using ConsultorioApp.Shared.ModelView;
 
-namespace ConsultorioApp.Data.Repository
+namespace ConsultorioApp.Manager.Interfaces.Managers
 {
     public interface IClienteManager
     {

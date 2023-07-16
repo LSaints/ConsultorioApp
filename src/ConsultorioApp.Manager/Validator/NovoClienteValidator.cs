@@ -11,13 +11,8 @@ namespace ConsultorioApp.Manager.Validator
             RuleFor(x => x.DataNascimento).NotEmpty().NotNull().LessThan(DateTime.Now).GreaterThan(DateTime.Now.AddYears(-130));
             RuleFor(x => x.Documento).NotEmpty().NotNull().MinimumLength(4).MaximumLength(14);
             RuleFor(x => x.Telefones).NotEmpty().NotNull();
-            RuleFor(x => x.Sexo).NotEmpty().NotNull().Must(IsMorF).WithMessage("Sexo precisa ser M ou F");
+            RuleFor(x => x.Sexo).NotNull();
             RuleFor(x => x.Endereco).SetValidator(new NovoEnderecoValidator());
-        }
-
-        private bool IsMorF(char sexo)
-        {
-            return sexo == 'M' || sexo == 'F';
         }
     }
 }

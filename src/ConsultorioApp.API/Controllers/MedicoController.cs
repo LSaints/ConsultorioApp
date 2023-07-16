@@ -1,5 +1,5 @@
 ﻿using ConsultorioApp.Core.Domain;
-using ConsultorioApp.Manager.Interfaces;
+using ConsultorioApp.Manager.Interfaces.Managers;
 using ConsultorioApp.Shared.ModelView;
 using Microsoft.AspNetCore.Mvc;
 
