@@ -1,7 +1,7 @@
 ﻿using ConsultorioApp.Core.Domain;
 using ConsultorioApp.Data.Configuration;
 using ConsultorioApp.Data.Context;
-using ConsultorioApp.Manager.Interfaces;
+using ConsultorioApp.Manager.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace ConsultorioApp.Data.Repository

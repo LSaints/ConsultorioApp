@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ConsultorioApp.Core.Domain;
-using ConsultorioApp.Data.Repository;
-using ConsultorioApp.Manager.Interfaces;
+using ConsultorioApp.Manager.Interfaces.Managers;
+using ConsultorioApp.Manager.Interfaces.Repositories;
 using ConsultorioApp.Shared.ModelView;
 
 namespace ConsultorioApp.Data.Implementation

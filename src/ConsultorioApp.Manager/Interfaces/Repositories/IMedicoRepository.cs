@@ -1,6 +1,6 @@
 ﻿using ConsultorioApp.Core.Domain;
 
-namespace ConsultorioApp.Manager.Interfaces
+namespace ConsultorioApp.Manager.Interfaces.Repositories
 {
     public interface IMedicoRepository
     {

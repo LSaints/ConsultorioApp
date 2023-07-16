@@ -1,7 +1,7 @@
 ﻿using ConsultorioApp.Core.Domain;
 using ConsultorioApp.Shared.ModelView;
 
-namespace ConsultorioApp.Manager.Interfaces
+namespace ConsultorioApp.Manager.Interfaces.Managers
 {
     public interface IMedicoManager
     {
