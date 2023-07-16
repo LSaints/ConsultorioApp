@@ -1,4 +1,5 @@
 ﻿using ConsultorioApp.Core.Domain;
+using ConsultorioApp.Data.Implementation;
 using ConsultorioApp.Manager.Interfaces.Managers;
 using ConsultorioApp.Shared.ModelView;
 using Microsoft.AspNetCore.Mvc;
@@ -23,11 +24,17 @@ namespace ConsultorioApp.API.Controllers
         // GET: api/<ClienteController>
         [HttpGet]
         [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Get()
         {
+            var clientes = await _manager.GetClientesAsync();
             _logger.LogInformation("foi chamado o metodo GET de ClienteController");
-            return Ok(await _manager.GetClientesAsync());
+            if(clientes.Any())
+            {
+                return Ok(clientes);
+            }
+            return NotFound();
         }
 
         // GET api/<ClienteController>/5
@@ -37,7 +44,12 @@ namespace ConsultorioApp.API.Controllers
         public async Task<ActionResult> Get(int id)
         {
             _logger.LogInformation("foi chamado o metodo GET de ClienteController");
-            return Ok(await _manager.GetClienteAsync(id));
+            var cliente = await _manager.GetClienteAsync(id);
+            if (cliente.Id == 0)
+            {
+                return NotFound();
+            }
+            return Ok(cliente);
         }
 
         // POST api/<ClienteController>
@@ -72,10 +84,14 @@ namespace ConsultorioApp.API.Controllers
         [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             _logger.LogInformation("foi chamado o metodo DELETE de ClienteController");
-            await _manager.DeleteClienteAsync(id);
+            var clienteExcluido = await _manager.DeleteClienteAsync(id);
+            if (clienteExcluido == null) 
+            {
+                return NotFound();
+            }
             return NoContent();
         }
     }

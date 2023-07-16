@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="32.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ConsultorioApp.Core\ConsultorioApp.Core.csproj" />
+    <ProjectReference Include="..\..\src\ConsultorioApp.Shared\ConsultorioApp.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

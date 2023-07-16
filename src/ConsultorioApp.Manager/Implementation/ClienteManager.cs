@@ -26,9 +26,10 @@ namespace ConsultorioApp.Data.Implementation
             return await _repository.GetClienteAsync(id);
         }
 
-        public async Task DeleteClienteAsync(int id)
+        public async Task<Cliente> DeleteClienteAsync(int id)
         {
-            await _repository.DeleteClienteAsync(id);
+            var cliente = await _repository.DeleteClienteAsync(id);
+            return cliente;
         }
 
         public async Task<Cliente> InsertClienteAsync(NovoCliente novoCliente)

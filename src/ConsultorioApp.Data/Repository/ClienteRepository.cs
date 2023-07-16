@@ -50,11 +50,17 @@ namespace ConsultorioApp.Data.Repository
             return clienteConsultado;
         }
 
-        public async Task DeleteClienteAsync(int id)
+        public async Task<Cliente> DeleteClienteAsync(int id)
         {
             var clienteConsultado = await _context.Clientes.FindAsync(id);
-            _context.Clientes.Remove(clienteConsultado);
+            if (clienteConsultado == null)
+            {
+                return null;
+            }
+
+            var clienteRemovido = _context.Clientes.Remove(clienteConsultado);
             await _context.SaveChangesAsync();
+            return clienteRemovido.Entity;
         }
 
     }
