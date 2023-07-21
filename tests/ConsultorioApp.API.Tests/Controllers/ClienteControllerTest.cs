@@ -34,7 +34,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task GetOk()
+        public async Task Get_Ok()
         {
             var controle = new List<Cliente>();
             _clientes.ForEach(p => controle.Add(p));
@@ -48,7 +48,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task GetNotFound()
+        public async Task Get_NotFound()
         {
             _manager.GetClientesAsync().Returns(new List<Cliente>());
 
@@ -59,7 +59,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task GetByIdOk()
+        public async Task GetById_Ok()
         {
             _manager.GetClienteAsync(Arg.Any<int>()).Returns(_cliente.CloneTipado());
 
@@ -71,7 +71,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task GetByIdNotFound()
+        public async Task GetById_NotFound()
         {
             _manager.GetClienteAsync(Arg.Any<int>()).Returns(new Cliente());
 
@@ -82,7 +82,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task PostCreated()
+        public async Task Post_Created()
         {
             _manager.InsertClienteAsync(Arg.Any<NovoCliente>()).Returns(_cliente.CloneTipado());
 
@@ -94,7 +94,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task PutOk()
+        public async Task Put_Ok()
         {
             _manager.UpdateClienteAsync(Arg.Any<AlteraCliente>()).Returns(_cliente.CloneTipado());
 
@@ -106,7 +106,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task PutNotFound()
+        public async Task Put_NotFound()
         {
             _manager.UpdateClienteAsync(Arg.Any<AlteraCliente>()).ReturnsNull();
 
@@ -117,7 +117,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task DeleteNoContent()
+        public async Task Delete_NoContent()
         {
             _manager.DeleteClienteAsync(Arg.Any<int>()).Returns(_cliente);
 
@@ -128,7 +128,7 @@ namespace ConsultorioApp.API.Tests.Controllers
         }
 
         [Fact]
-        public async Task NotFoundNotFound()
+        public async Task NotFound_NotFound()
         {
             _manager.DeleteClienteAsync(Arg.Any<int>());
 

@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsultorioApp.FakeData", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioApp.Manager.Tests", "tests\ConsultorioApp.Manager.Tests\ConsultorioApp.Manager.Tests.csproj", "{E185C8E9-B4C1-411C-B670-C174BCFBA3C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultorioApp.Repository.Tests", "tests\ConsultorioApp.Repository.Tests\ConsultorioApp.Repository.Tests.csproj", "{4DD63EDC-1B56-4239-8958-E707E23F2041}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{E185C8E9-B4C1-411C-B670-C174BCFBA3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E185C8E9-B4C1-411C-B670-C174BCFBA3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E185C8E9-B4C1-411C-B670-C174BCFBA3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD63EDC-1B56-4239-8958-E707E23F2041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD63EDC-1B56-4239-8958-E707E23F2041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD63EDC-1B56-4239-8958-E707E23F2041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD63EDC-1B56-4239-8958-E707E23F2041}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{6102C686-55DB-4BAF-AEE9-35C34CBA2DA9} = {902E283C-F7B2-487D-925E-5538AA6A0B16}
 		{616B4411-9C50-4D01-8AE3-E939AB898E68} = {902E283C-F7B2-487D-925E-5538AA6A0B16}
 		{E185C8E9-B4C1-411C-B670-C174BCFBA3C0} = {902E283C-F7B2-487D-925E-5538AA6A0B16}
+		{4DD63EDC-1B56-4239-8958-E707E23F2041} = {902E283C-F7B2-487D-925E-5538AA6A0B16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3E01C85-4501-4F66-BCD5-47358B42C1FC}
