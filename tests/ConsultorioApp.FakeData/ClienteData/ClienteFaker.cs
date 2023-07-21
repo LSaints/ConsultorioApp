@@ -16,8 +16,8 @@ namespace ConsultorioApp.FakeData.ClienteData
             RuleFor(p => p.Sexo, f => f.PickRandom<Sexo>());
             RuleFor(p => p.Documento, f => f.Person.Cpf());
             RuleFor(p => p.Criacao, f => f.Date.Past());
-            RuleFor(p => p.Telefones, f => new TelefoneFaker().Generate(3));
-            RuleFor(p => p.Endereco, f => new EnderecoFaker().Generate());
+            RuleFor(p => p.Telefones, f => new TelefoneFaker(id).Generate(3));
+            RuleFor(p => p.Endereco, f => new EnderecoFaker(id).Generate());
         }
     }
 }

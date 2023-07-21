@@ -12,6 +12,7 @@ namespace ConsultorioApp.FakeData.EnderecoData
             RuleFor(p => p.Cidade, f => f.Address.City());
             RuleFor(p => p.Estado, f => f.PickRandom<EstadoView>());
             RuleFor(p => p.Complemento, f => f.Lorem.Sentence(20));
+            RuleFor(p => p.Logradouro, f => f.Address.StreetName());
         }
     }
 }
